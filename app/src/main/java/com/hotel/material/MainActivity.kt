@@ -53,16 +53,17 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setTitle("Hotels")
 
         destination.setOnClickListener {
+            ll_transition.transitionName = "ll_transition"
             val intent = Intent(this, LocationActivity::class.java);
             val viewPairs = arrayOf<Pair<View, String>>(Pair.create(ll_transition, "ll_transition"))
             this@MainActivity.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(this@MainActivity, *viewPairs).toBundle())
         }
 
-        Handler().postDelayed(object : Runnable {
+        /*Handler().postDelayed(object : Runnable {
             override fun run() {
                 supportStartPostponedEnterTransition()
             }
-        }, 500)
+        }, 500)*/
 
         guest.setOnClickListener { expand() }
         room.setOnClickListener { expand() }
